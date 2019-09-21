@@ -1,90 +1,90 @@
 #include <iostream>
-#include <conio.h>
 using namespace std;
-
-
-struct nodo {
+struct Nodo{
 	int valor;
-	nodo *puntero;
-	
+	struct Nodo *Ptr;
 };
 
-int main (int argc, char** argv){
+	void agregar(struct Nodo*&iniciolista,int valor);
+	void imprimir(struct Nodo*&iniciolista);
+	
+int main(){	
+	struct Nodo *inicio;
+	struct Nodo *aux;
+	int opcion;
+	int menu;
+	int valor;
+	Nodo *Ptr;
+	cout<<"\elige una opcion\n\n";
+	cout<<"1.- Agregar\n";
+	cout<<"2.-Imprimir\n";
+	cout<<"3.-Salir\n";
+	
+	cin>>opcion;
+    do{
+  	switch(opcion){
+		case 1:
+			cout<<"Agrgar un nuevo nodo"<<endl;
+			cin>>valor;
+			agregar(inicio,valor);
+		break;
+		case 2:
+			cout<<"Imprimir valores "<<endl;
+			while (Nodo!=Ptr){
+				cout<<"imprimir"<<endl;
+				cin>>valor;
+				cout<<endl;
+			}
+		break ;
+		case 3:
+			cout<<"salir "<<endl;
+			break;
+			default: 
+			cout<<endl;
+			cout<<"error"<<endl;		
+	}
 	
 	
-	struct nodo *inicio;
-	struct nodo *aux;
-	inicio=NULL;
-	//IMPRIMIR EL VALOR DE UN NODO
-	//aux=new nodo ();
-	//aux->valor=25;
-	//aux->puntero=NULL;
-	//cout<<aux->valor<<endl;
-	
-	//IMPRIMIR NODOS CON DATOS
-	struct nodo dato1, dato2, dato3, dato4, dato5;
-	dato1.valor=3;
-	dato1.puntero=NULL;
-	dato2.valor=7;
-	dato2.puntero=NULL;
-	dato3.valor=9;
-	dato3.puntero=NULL;
-	dato4.valor=10;
-	dato4.puntero=NULL;
-	dato5.valor=11;
-	dato5.puntero=NULL;
-	
-	
-	dato1.puntero=&dato2;
-	dato2.puntero=&dato3;
-	dato3.puntero=&dato4;
-	dato4.puntero=&dato5;
-	dato5.puntero=NULL;
-	
-	cout<<"\t"<<"VALOR DE NODOS"<<"\t"<<endl;
-	cout<<dato1.valor<<endl;
-	cout<<dato1.puntero->valor<<endl;
-	cout<<dato1.puntero->puntero->valor<<endl;
-	cout<<dato1.puntero->puntero->puntero->valor<<endl;
-	cout<<dato1.puntero->puntero->puntero->puntero->valor<<endl;
-	
-	
-	//IMPRIMIR NODOS CON EL AUXILIAR
-	aux=new nodo();
-	aux->valor=12;
-	aux->puntero=NULL;
-	inicio=aux;
-	
-	aux=new nodo();
-	aux->valor=13;
-	aux->puntero=NULL;
-	inicio->puntero=aux;
-	
-	aux=new nodo();
-	aux->valor=14;
-	aux->puntero=NULL;
-	inicio->puntero->puntero=aux;
-	
-	aux=new nodo();
-	aux->valor=15;
-	aux->puntero=NULL;
-	inicio->puntero->puntero->puntero=aux;
-	
-	aux=new nodo();
-	aux->valor=16;
-	aux->puntero=NULL;
-	inicio->puntero->puntero->puntero->puntero=aux;
-	
-	cout<<"\t"<<"VALOR DE NODOS"<<"\t"<<endl;
-	cout<<inicio->valor<<endl;
-	cout<<inicio->puntero->valor<<endl;
-	cout<<inicio->puntero->puntero->valor<<endl;
-	cout<<inicio->puntero->puntero->puntero->valor<<endl;
-	cout<<inicio->puntero->puntero->puntero->puntero->valor<<endl;
-
-
-	
-	getch();
+	}while (opcion!=3);
 	return 0;
+	
+}
+
+
+
+void agregar(struct Nodo*&iniciolista,int valor){
+	struct Nodo *aux;
+	struct Nodo *aux2;
+	aux->valor=valor;
+	aux->Ptr=NULL;
+	
+	aux2=iniciolista;
+
+	if(iniciolista==NULL){
+		iniciolista=aux;
+		
+}else{
+
+	while(aux2==NULL){
+		aux2=aux2->Ptr;
+		aux->valor;
+		
+	};
+	
+
+	
+	
+}
+	}
+		
+void imprimirlista(struct Nodo*&iniciolista){
+	struct Nodo*aux;
+	iniciolista=aux;
+	while(aux=!NULL)
+	{
+	cout<<aux->valor;
+	aux=aux->Ptr;
+	
+	}
 	
 }
