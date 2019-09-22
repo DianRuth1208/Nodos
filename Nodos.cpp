@@ -1,90 +1,96 @@
 #include <iostream>
+#include <conio.h>
+#include <stdlib.h>
 using namespace std;
-struct Nodo{
+
+struct nodo {
 	int valor;
-	struct Nodo *Ptr;
+	struct nodo *puntero;
 };
 
-	void agregar(struct Nodo*&iniciolista,int valor);
-	void imprimir(struct Nodo*&iniciolista);
-	
-int main(){	
-	struct Nodo *inicio;
-	struct Nodo *aux;
-	int opcion;
-	int menu;
-	int valor;
-	Nodo *Ptr;
-	cout<<"\elige una opcion\n\n";
-	cout<<"1.- Agregar\n";
-	cout<<"2.-Imprimir\n";
-	cout<<"3.-Salir\n";
-	
-	cin>>opcion;
-    do{
-  	switch(opcion){
-		case 1:
-			cout<<"Agrgar un nuevo nodo"<<endl;
-			cin>>valor;
-			agregar(inicio,valor);
-		break;
-		case 2:
-			cout<<"Imprimir valores "<<endl;
-			while (Nodo!=Ptr){
-				cout<<"imprimir"<<endl;
-				cin>>valor;
-				cout<<endl;
-			}
-		break ;
-		case 3:
-			cout<<"salir "<<endl;
-			break;
-			default: 
-			cout<<endl;
-			cout<<"error"<<endl;		
-	}
-	
-	
-	}while (opcion!=3);
+
+//Definir funciones 
+void menu();
+void agregar(nodo*&, int);
+void imprimir(nodo*);
+
+int op, valor;
+nodo*lista=NULL;
+
+//INICIO 
+int main ()
+{
+	menu();
 	return 0;
-	
 }
-
-
-
-void agregar(struct Nodo*&iniciolista,int valor){
-	struct Nodo *aux;
-	struct Nodo *aux2;
-	aux->valor=valor;
-	aux->Ptr=NULL;
 	
-	aux2=iniciolista;
-
-	if(iniciolista==NULL){
-		iniciolista=aux;
-		
-}else{
-
-	while(aux2==NULL){
-		aux2=aux2->Ptr;
-		aux->valor;
-		
-	};
+//Funcion del menu
+void menu(){
 	
-
-	
-	
-}
-	}
-		
-void imprimirlista(struct Nodo*&iniciolista){
-	struct Nodo*aux;
-	iniciolista=aux;
-	while(aux=!NULL)
+	do
 	{
-	cout<<aux->valor;
-	aux=aux->Ptr;
-	
-	}
-	
+		cout<<"\n\t>>Menu<<\t\n";
+		cout<<"1. Agregar nodo\n";
+		cout<<"2. Imprimir nodo\n";
+		cout<<"3. Salir\n";
+		cout<<"Elije una opcion: ";
+		cin>>op;
+		
+		switch(op)
+		{
+			case 1:
+				cout<<"\nIngresa un valor: ";
+				cin>>valor;
+				agregar(lista, valor);
+				cout<<"Se guardo el valor correctamente\n"<<endl;
+				system("pause");
+			break;
+			case 2:
+				cout<<"\nEl valor guarado es: ";
+				imprimir(lista);
+				cout<<endl;
+				system("pause");
+			break;
+		}
+			
+		//system("cls");
+	}while (op!=3);
 }
+
+
+//Funcion agregar nodos
+void agregar(nodo*&lista, int dat)
+{
+	nodo*nuevoNod=new nodo();
+	nuevoNod->valor=dat;
+	nodo*aux1=lista;
+	nodo*aux2;
+	while ( (aux1!= NULL) && (aux1->valor<dat) )
+	{
+		aux2=aux1;
+		aux1=aux1->puntero;
+	}
+		if (lista==aux1)
+		{
+			lista=nuevoNod;
+		}
+		else{
+			aux2->puntero=nuevoNod;
+		}
+	nuevoNod->puntero=aux1;
+}
+
+
+
+//Funcion imprimir nodos
+void imprimir(nodo*lista)
+{
+	nodo*ac=new nodo();
+	ac=lista;
+	while (ac!= NULL)
+	{
+		cout<<"->"<<ac->valor;
+		ac=ac->puntero;
+	}
+}
+
